@@ -20,7 +20,7 @@ type accounting struct {
 
 func main() {
 	//client, err := mongo.Connect(context.TODO(), "mongodb://localhost:27017")
-	client, err := mongo.NewClient("mongodb://admin:securepassword@localhost:29264")
+	client, err := mongo.NewClient("mongodb://admin:securepassword@localhost:29369")
 	err = client.Connect(context.TODO())
 
 	// options := options.Find()
@@ -41,7 +41,7 @@ func main() {
 
 	collection := client.Database("accounting").Collection("general_ledger")
 
-	cur, err := collection.Find(context.TODO(), nil)
+	cur, err := collection.Find(context.TODO(), bson.D{})
 	if err != nil {
 		fmt.Println(err)
 		return
